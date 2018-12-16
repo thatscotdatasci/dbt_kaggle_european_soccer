@@ -1,0 +1,1 @@
+select * from {{ ref('player_bmi') }} where bmi <= 0

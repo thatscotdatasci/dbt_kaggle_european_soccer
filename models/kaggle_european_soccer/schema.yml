@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: player_age
+    description: The age of each player
+
+    columns:
+      - name: id
+        description: Unique identfier for the player
+        tests:
+          - unique
+          - not_null
+      - name: age
+        description: Age of the player in years
+        tests:
+          - not_null
