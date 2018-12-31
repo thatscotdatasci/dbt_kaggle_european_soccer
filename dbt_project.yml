@@ -32,12 +32,20 @@ models:
   dbt_kaggle_european_soccer:
     example:
       materialized: view
-    kaggle_european_soccer:
+      schema: dbt_example
+      tags: dbt_example
+    analysis:
       enabled: true
       materialized: table
-      schema: dbt
+      schema: dbt_analysis
+      tags: analysis
+    players:
+      enabled: true
+      materialized: table
+      schema: dbt_players
+      tags: players
 
 # Note: Only playing with the seed config, this block is not required to use seed data
 seeds:
   enabled: true
-  scheme: seed_data
+  schema: dbt_seed
