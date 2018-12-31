@@ -44,6 +44,11 @@ models:
       materialized: table
       schema: dbt_players
       tags: players
+    matches:
+      enabled: true
+      materialized: table
+      schema: dbt_matches
+      tags: matches
 
 # Note: Only playing with the seed config, this block is not required to use seed data
 seeds:
