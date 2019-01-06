@@ -1,5 +1,5 @@
-{%- set locations = ['home', 'away'] -%}
-{%- set results = ['win', 'loss', 'draw'] -%}
+{%- set locations = get_ref_column_data(ref('match_categories'), 'category')  -%}
+{%- set results = get_ref_column_data(ref('result_categories'), 'result')  -%}
 {%- set orders = ['asc', 'desc'] -%}
 
 select r.*,
