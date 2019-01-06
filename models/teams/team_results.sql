@@ -16,6 +16,7 @@ select r.*,
     {%- endfor -%}
     {%- if not loop.last %}, {% endif %}{% if loop.last -%} {%- endif -%}
 {%- endfor %}
+, bmi.avg_bmi, bmi.bmi_cat
 from (
     select team_api_id, count(team_api_id) as matches_played, sum(home) as home_matches_played
     from {{ ref('match_results') }}
@@ -39,3 +40,5 @@ from (
         {% endfor %}
     {% endfor %}
 {% endfor %}
+left join {{ ref('team_bmi') }} bmi
+on r.team_api_id = bmi.team_api_id
