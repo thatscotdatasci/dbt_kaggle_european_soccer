@@ -19,7 +19,7 @@ select r.*,
 , bmi.avg_bmi, bmi.bmi_cat, age.avg_age
 from (
     select team_api_id, count(team_api_id) as matches_played, sum(home) as home_matches_played
-    from {{ ref('match_results') }}
+    from {{ ref('match_data') }}
     group by team_api_id
 ) r
 {% for result in results %}

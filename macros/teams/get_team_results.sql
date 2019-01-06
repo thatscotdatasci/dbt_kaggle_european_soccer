@@ -2,7 +2,7 @@
     {{ log("Running macro get_team_results with arguments: result: " ~ result) }}
 
     select team_api_id, count(result) as {{ result }}{% if location in ['home', 'away'] %}_{{ location }}{% endif %}
-    from {{ ref('match_results') }}
+    from {{ ref('match_data') }}
     where result = (select category from {{ ref('result_categories') }} where result = '{{ result }}')
     {% if location in ['home', 'away'] %}
         and home = {{ 1 if location == 'home' else 0 }}
@@ -18,7 +18,7 @@
     (
         select team_api_id, match_api_id, date,
         ROW_NUMBER() OVER (PARTITION BY team_api_id ORDER BY date {{ order }}) rn
-        from {{ ref('match_results') }}
+        from {{ ref('match_data') }}
         where result = (select category from {{ ref('result_categories') }} where result = '{{ result }}')
         and home = {{ 1 if location == 'home' else 0 }}
     ) a
