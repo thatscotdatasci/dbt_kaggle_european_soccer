@@ -1,0 +1,75 @@
+version: 2
+
+models:
+- name: match_data
+  description: Data on each of the matches played. There are two records for each match; 1 per team.
+
+  columns:
+  - name: match_api_id
+    description: API ID for the match
+    tests:
+    - not_null
+  - name: date
+    description: Date on which the match was played
+    tests:
+    - not_null
+  - name: team_api_id
+    description: API ID for the team
+    tests:
+    - not_null
+  - name: home
+    description: Value is 1 if the team was playing at home, else 0
+    tests:
+    - not_null
+    - accepted_values:
+        values: [0, 1]
+  - name: goals_scored
+    description: Number of goals scored by the team
+    tests:
+    - not_null
+  - name: goals_conceded
+    description: Number of goals conceded by the team
+    tests:
+    - not_null
+  - name: result
+    description: Value is 0 for loss, 1 for win, 2 for draw
+    tests:
+    - not_null
+    - accepted_values:
+        values: [0, 1, 2]
+- name: match_players
+  description: Match data split by each player who played
+
+  columns:
+  - name: player_api_id
+    description: API ID for the player
+    tests:
+    - not_null
+  - name: match_api_id
+    description: API ID for the match
+    tests:
+    - not_null
+  - name: date
+    description: Date on which the match was played
+    tests:
+    - not_null
+  - name: team_api_id
+    description: API ID for the team
+    tests:
+    - not_null
+  - name: opposition_team_api_id
+    description: API ID for the opposition team
+    tests:
+    - not_null
+  - name: home
+    description: Value is 1 if the team was playing at home, else 0
+    tests:
+    - not_null
+    - accepted_values:
+        values: [0, 1]
+  - name: result
+    description: Value is 0 for loss, 1 for win, 2 for draw
+    tests:
+    - not_null
+    - accepted_values:
+        values: [0, 1, 2]
