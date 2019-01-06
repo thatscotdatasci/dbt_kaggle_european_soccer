@@ -1,9 +1,9 @@
 select * from (
     (
-        {{ get_match_results(True) }}
+        {{ get_match_results('home') }}
     )
     union all
     (
-        {{ get_match_results(False) }}
+        {{ get_match_results('away') }}
     )
 ) r
