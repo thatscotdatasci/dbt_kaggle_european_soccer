@@ -1,16 +1,102 @@
 version: 2
 
 models:
-  - name: player_age
-    description: The age of each player
+- name: player_age
+  description: Calculated age of each player
 
-    columns:
-      - name: id
-        description: Unique identfier for the player
-        tests:
-          - unique
-          - not_null
-      - name: age
-        description: Age of the player in years
-        tests:
-          - not_null
+  columns:
+  - name: id
+    description: Table primary key
+    tests:
+    - unique
+    - not_null
+  - name: player_api_id
+    description: API ID for the player
+    tests:
+    - unique
+    - not_null
+  - name: age
+    description: Age of the player in years
+    tests:
+    - not_null
+- name: player_bmi
+  description: Calculated bmi of each player
+
+  columns:
+  - name: id
+    description: Table primary key
+    tests:
+    - unique
+    - not_null
+  - name: player_api_id
+    description: API ID for the player
+    tests:
+    - unique
+    - not_null
+  - name: bmi
+    description: BMI of the player
+    tests:
+    - not_null
+- name: player_bmi_cat
+  description: Calculated BMI category of each player
+
+  columns:
+  - name: id
+    description: Table primary key
+    tests:
+    - unique
+    - not_null
+  - name: player_api_id
+    description: API ID for the player
+    tests:
+    - unique
+    - not_null
+  - name: bmi
+    description: BMI of the player
+    tests:
+    - not_null
+  - name: bmi_cat
+    description: BMI category of the player
+    tests:
+    - not_null
+- name: player_career_length
+  description: Calculated career length of each player
+
+  columns:
+  - name: player_api_id
+    description: API ID for the player
+    tests:
+    - unique
+    - not_null
+  - name: career_length
+    description: Length of player's career in years
+    tests:
+    - not_null
+- name: player_data
+- name: player_match_count
+  description: Calculated career length of each player
+
+  columns:
+  - name: player_api_id
+    description: API ID for the player
+    tests:
+    - unique
+    - not_null
+  - name: match_count
+    description: Number of matches the player has played
+    tests:
+    - not_null
+  - name: first_played
+    description:
+    tests:
+    - not_null
+  - name: last_played
+    description: Date of the player's last match
+    tests:
+    - not_null
+  - name: loss
+    description: Number of games in which the player has played for a team which lost
+  - name: win
+    description: Number of games in which the player has played for a team which won
+  - name: draw
+    description: Number of games in which the player has played for a team which drew
