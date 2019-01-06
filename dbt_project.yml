@@ -30,10 +30,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as views (the default). Try changing `view` to `table` below, then re-running dbt
 models:
   dbt_kaggle_european_soccer:
-    example:
-      materialized: view
-      schema: dbt_example
-      tags: dbt_example
     analysis:
       enabled: true
       materialized: table
