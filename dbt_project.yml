@@ -44,6 +44,11 @@ models:
       materialized: table
       schema: dbt_players
       tags: players
+    teams:
+      enabled: true
+      materialized: table
+      schema: dbt_teams
+      tags: teams
     matches:
       enabled: true
       materialized: table
