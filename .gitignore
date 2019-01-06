@@ -2,3 +2,6 @@
 target/
 dbt_modules/
 logs/
+
+# jupyter
+.ipynb_checkpoints/
