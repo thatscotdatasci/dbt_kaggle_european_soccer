@@ -87,7 +87,7 @@ models:
     tests:
     - not_null
   - name: first_played
-    description:
+    description: Date of the player's first match
     tests:
     - not_null
   - name: last_played
