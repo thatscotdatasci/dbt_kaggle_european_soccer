@@ -1,4 +1,3 @@
-{%- set match_columns_text = match_columns|join(', ') -%}
 {%- set locations = get_ref_column_data(ref('match_categories'), 'category')  -%}
 
 select player_api_id, match_api_id, date::date as date, team_api_id, opposition_team_api_id, home, result from (
